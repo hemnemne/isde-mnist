@@ -40,5 +40,3 @@ class CDataPerturbGaussian(CDataPerturb):
         z[z < self.min_value] = self.min_value
         z[z > self.max_value] = self.max_value
         return z
-
-
