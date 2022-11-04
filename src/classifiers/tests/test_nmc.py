@@ -20,8 +20,7 @@ class TestNMC(unittest.TestCase):
 
     def test_predict(self):
          #Test for None
-        with self.assertRaises(ValueError) :
-            self.clf.predict(self.x)
+        self.assertRaises(ValueError,self.clf.predict,self.x)
 
         #Set the centroids for the 2nd Test:
         self.clf._centroids = np.zeros(shape= (np.unique(self.y).size, self.x.shape[1]))
