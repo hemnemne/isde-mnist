@@ -17,3 +17,17 @@ class TestNMC(unittest.TestCase):
         self.assertIsNotNone(out)
         self.assertEqual(out.shape, (1, 2))
         self.assertTrue(out.sum() == 0)
+
+    def test_predict(self):
+         #Test for None
+        with self.assertRaises(ValueError) :
+            self.clf.predict(self.x)
+
+        #Set the centroids for the 2nd Test:
+        self.clf._centroids = np.zeros(shape= (np.unique(self.y).size, self.x.shape[1]))
+        y_pred = self.clf.predict(self.x)
+        self.assertEqual(self.y.shape, y_pred.shape)
+
+
+
+
